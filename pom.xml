@@ -283,22 +283,6 @@
         </plugin>
 
         <!-- generate documentation -->
-        <plugin>
-          <groupId>com.github.fracpete</groupId>
-          <artifactId>latex-maven-plugin</artifactId>
-          <version>1.4.4</version>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>latex</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <forceBuild>false</forceBuild>
-          </configuration>
-        </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
