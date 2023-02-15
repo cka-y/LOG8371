@@ -15,7 +15,7 @@
  *
  *    You should have received a copy of the GNU General Public License
  *    along with this program. If not, see <http://www.gnu.org/licenses/>.
- *    
+ *
  */
 package moa.core;
 
@@ -36,6 +36,34 @@ public class DoubleVector extends AbstractMOAObject {
     public DoubleVector() {
         this.array = new double[0];
     }
+
+	public DoubleVector(int size) {
+		this.array = new double[size];
+	}
+
+	public DoubleVector squared() {
+		DoubleVector result = new DoubleVector(this.array.length);
+		for (int i = 0; i < this.array.length; i++) {
+			result.setValue(i, this.array[i] * this.array[i]);
+		}
+		return result;
+	}
+
+	public double dotProduct(DoubleVector other) {
+		double result = 0.0;
+		for (int i = 0; i < this.array.length; i++) {
+			result += this.array[i] * other.array[i];
+		}
+		return result;
+	}
+
+	public DoubleVector multiply(double value) {
+		DoubleVector result = new DoubleVector(this.array.length);
+		for (int i = 0; i < this.array.length; i++) {
+			result.setValue(i, this.array[i] * value);
+		}
+		return result;
+	}
 
     public DoubleVector(double[] toCopy) {
         this.array = new double[toCopy.length];
@@ -114,7 +142,7 @@ public class DoubleVector extends AbstractMOAObject {
         }
         return sum;
     }
-    
+
     public double sumOfAbsoluteValues() {
         double sum = 0.0;
         for (double element : this.array) {
